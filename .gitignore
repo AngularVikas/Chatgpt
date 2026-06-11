@@ -1,0 +1,8 @@
+LCC/node_modules/
+LCC/.expo/
+LCC/.env
+LCC/google-services.json
+LCC/GoogleService-Info.plist
+LCC/google-service-account.json
+*.log
+.DS_Store
