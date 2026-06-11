@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, ScrollView, Alert, KeyboardAvoidingView, Platform } from 'react-native';
 import { useRouter } from 'expo-router';
-import DateTimePicker from '@react-native-community/datetimepicker';
+// DateTimePicker used via native Input on web; native module on device
 import { ScreenHeader } from '../../../src/components/layout/ScreenHeader';
 import { Input } from '../../../src/components/ui/Input';
 import { Button } from '../../../src/components/ui/Button';
@@ -67,12 +67,12 @@ export default function AddMatchScreen() {
           </View>
 
           <Text style={[styles.label, { color: theme.text.secondary }]}>Date & Time</Text>
-          <DateTimePicker
-            value={matchDate}
-            mode="datetime"
-            display="spinner"
-            onChange={(_, d) => d && setMatchDate(d)}
-            minimumDate={new Date()}
+          <Input
+            label=""
+            value={matchDate.toISOString().slice(0, 16)}
+            onChangeText={val => { const d = new Date(val); if (!isNaN(d.getTime())) setMatchDate(d); }}
+            placeholder="YYYY-MM-DDTHH:MM"
+            containerStyle={{ marginBottom: spacing.md }}
           />
 
           <Input label="Notes" value={form.notes} onChangeText={set('notes')} placeholder="Any additional info..." multiline numberOfLines={3} />
