@@ -1,0 +1,52 @@
+{
+  "expo": {
+    "name": "Louisville Cricket Club",
+    "slug": "lcc-cricket-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "icon": "./assets/images/icon.png",
+    "scheme": "lcc",
+    "splash": {
+      "image": "./assets/images/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#1a3c5e"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.louisvillecricketclub.app",
+      "buildNumber": "1",
+      "config": { "usesNonExemptEncryption": false },
+      "infoPlist": {
+        "NSCameraUsageDescription": "LCC uses your camera for live match recording.",
+        "NSMicrophoneUsageDescription": "LCC uses your microphone for live match audio recording.",
+        "NSPhotoLibraryUsageDescription": "LCC saves match recordings to your photo library.",
+        "NSPhotoLibraryAddUsageDescription": "LCC saves match recordings to your photo library."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "backgroundColor": "#1a3c5e"
+      },
+      "package": "com.louisvillecricketclub.app",
+      "versionCode": 1,
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.VIBRATE",
+        "android.permission.RECEIVE_BOOT_COMPLETED"
+      ]
+    },
+    "plugins": [
+      "expo-router",
+      ["expo-camera", { "cameraPermission": "LCC uses your camera for match recording." }],
+      "expo-secure-store"
+    ],
+    "experiments": { "typedRoutes": true },
+    "extra": { "eas": { "projectId": "YOUR_EAS_PROJECT_ID" } }
+  }
+}
